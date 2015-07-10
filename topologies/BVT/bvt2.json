@@ -1,0 +1,88 @@
+{
+  "version": "0.0.1",
+  "buildstamp": "Version: 0.0.1 Build: 0010003 Time: 2015-07-06T21:49:47.316Z",
+  "buildid": "0010003",
+  "chef_environment": "_default",
+  "tags": [],
+  "nodes": [
+    {
+      "name": "MyService1436219109592",
+      "tags": [],
+      "normal": {
+        "topo": {
+          "node_type": "MyService",
+          "name": "bvt2"
+        }
+      },
+      "run_list": [
+        "role[base]",
+        "recipe[nodejs::install_from_binary]",
+        "recipe[asset_tracker::db]",
+        "recipe[asset_tracker::deploy_from_source]",
+        "recipe[bvt2]"
+      ]
+    },
+    {
+      "name": "MyMachine1436219109594",
+      "tags": [],
+      "normal": {
+        "topo": {
+          "node_type": "MyMachine",
+          "name": "bvt2"
+        }
+      },
+      "run_list": [
+        "recipe[asset_tracker::appserver]",
+        "recipe[bvt2]"
+      ]
+    }
+  ],
+  "services": [],
+  "cookbook_attributes": [
+    {
+      "cookbook": "bvt2",
+      "filename": "topology",
+      "conditional": [
+        {
+          "qualifier": "node_type",
+          "value": "MyService",
+          "override": {
+            "asset_tracker": {
+              "npm_registry": "https://registry.nodejitsu.com",
+              "report_path": "/var/chef/reports",
+              "port": 3001,
+              "db_name": "AssetTracker",
+              "build": {
+                "env": "DEV"
+              },
+              "dir": "/home/automation",
+              "user": "automation"
+            },
+            "nodejs": {
+              "binary": {
+                "checksum": {
+                  "linux_x64": "ac52da27a4e298a6de610de25b22628bdb97b78cb29d11464ef5cfa2e57847d5"
+                }
+              },
+              "install_method": "binary"
+            }
+          }
+        },
+        {
+          "qualifier": "node_type",
+          "value": "MyMachine",
+          "override": {
+            "nodejs": {
+              "install_method": "binary",
+              "binary": {
+                "checksum": {
+                  "linux_x64": "ac52da27a4e298a6de610de25b22628bdb97b78cb29d11464ef5cfa2e57847d5"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
