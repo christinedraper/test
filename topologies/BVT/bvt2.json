@@ -1,7 +1,7 @@
 {
   "version": "0.0.1",
-  "buildstamp": "Version: 0.0.1 Build: 0010003 Time: 2015-07-06T21:49:47.316Z",
-  "buildid": "0010003",
+  "buildstamp": "Version: 0.0.1 Build: 0010004 Time: 2015-07-10T19:30:37.141Z",
+  "buildid": "0010004",
   "chef_environment": "_default",
   "tags": [],
   "nodes": [
@@ -19,7 +19,7 @@
         "recipe[nodejs::install_from_binary]",
         "recipe[asset_tracker::db]",
         "recipe[asset_tracker::deploy_from_source]",
-        "recipe[bvt2]"
+        "recipe[bvt22]"
       ]
     },
     {
@@ -33,14 +33,14 @@
       },
       "run_list": [
         "recipe[asset_tracker::appserver]",
-        "recipe[bvt2]"
+        "recipe[bvt22]"
       ]
     }
   ],
   "services": [],
   "cookbook_attributes": [
     {
-      "cookbook": "bvt2",
+      "cookbook": "bvt22",
       "filename": "topology",
       "conditional": [
         {
