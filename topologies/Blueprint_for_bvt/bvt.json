@@ -1,0 +1,67 @@
+{
+  "version": "0.0.1",
+  "buildstamp": "Version: 0.0.1 Build: 0010001 Time: 2015-07-11T00:43:56.672Z",
+  "buildid": "0010001",
+  "chef_environment": "_default",
+  "tags": [],
+  "nodes": [
+    {
+      "name": "tst-m11",
+      "tags": [],
+      "normal": {
+        "topo": {
+          "node_type": "bvt_server",
+          "name": "bvt"
+        }
+      },
+      "run_list": [
+        "role[base]",
+        "recipe[nodejs::install_from_binary]",
+        "recipe[asset_tracker::db]",
+        "recipe[asset_tracker::deploy_from_source]",
+        "recipe[asset_tracker::test]",
+        "recipe[bvt]"
+      ]
+    }
+  ],
+  "services": [],
+  "cookbook_attributes": [
+    {
+      "cookbook": "bvt",
+      "filename": "topology",
+      "conditional": [
+        {
+          "qualifier": "node_type",
+          "value": "bvt_server",
+          "override": {
+            "nodejs": {
+              "install_method": "binary",
+              "binary": {
+                "checksum": {
+                  "linux_x64": "ac52da27a4e298a6de610de25b22628bdb97b78cb29d11464ef5cfa2e57847d5"
+                }
+              }
+            },
+            "asset_tracker": {
+              "user": "automation",
+              "dir": "/home/automation",
+              "build": {
+                "env": "DEV"
+              }
+            }
+          },
+          "default": {
+            "asset_tracker": {
+              "home": "/home/automation",
+              "name": "asset_tracker",
+              "npm_registry": "https://registry.nodejitsu.com",
+              "grunt-cli": {
+                "version": "~0.1"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
