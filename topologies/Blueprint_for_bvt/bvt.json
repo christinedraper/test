@@ -1,7 +1,7 @@
 {
   "version": "0.0.1",
-  "buildstamp": "Version: 0.0.1 Build: 0010004 Time: 2015-07-11T22:12:19.382Z",
-  "buildid": "0010004",
+  "buildstamp": "Version: 0.0.1 Build: 0010005 Time: 2015-07-11T22:20:03.159Z",
+  "buildid": "0010005",
   "chef_environment": "_default",
   "tags": [],
   "nodes": [
@@ -14,7 +14,6 @@
           "name": "bvt"
         }
       },
-      "chef_environment": "test",
       "run_list": [
         "role[base]",
         "recipe[nodejs::install_from_binary]",
