@@ -1,8 +1,8 @@
 {
   "version": "0.0.1",
-  "buildstamp": "Version: 0.0.1 Build: 0010006 Time: 2015-07-12T21:37:02.060Z",
-  "buildid": "0010006",
-  "tags": ["hello", "again"],
+  "buildstamp": "Version: 0.0.1 Build: 0010007 Time: 2015-07-12T21:52:14.164Z",
+  "buildid": "0010007",
+  "tags": [],
   "nodes": [
     {
       "name": "something1436735294113",
@@ -11,6 +11,27 @@
         "topo": {
           "node_type": "something",
           "name": "3rd"
+        },
+        "asset_tracker": {
+          "jasmine_version": "2.0.1",
+          "version": "1.2.2",
+          "build": {
+            "env": "DEV"
+          },
+          "dir": "/home/automation",
+          "user": "automation"
+        },
+        "mongodb": {
+          "package_version": "2.6.5"
+        },
+        "nodejs": {
+          "version": "0.10.29",
+          "binary": {
+            "checksum": {
+              "linux_x64": "ac52da27a4e298a6de610de25b22628bdb97b78cb29d11464ef5cfa2e57847d5"
+            }
+          },
+          "install_method": "binary"
         }
       },
       "run_list": [
@@ -18,39 +39,10 @@
         "recipe[nodejs::install_from_binary]",
         "recipe[asset_tracker::db]",
         "recipe[asset_tracker::deploy_from_source]",
-        "recipe[asset_tracker::test]",
-        "recipe[third]"
+        "recipe[asset_tracker::test]"
       ]
     }
   ],
   "services": [],
-  "cookbook_attributes": [
-    {
-      "cookbook": "third",
-      "filename": "topology",
-      "conditional": [
-        {
-          "qualifier": "node_type",
-          "value": "something",
-          "override": {
-            "asset_tracker": {
-              "build": {
-                "env": "DEV"
-              },
-              "dir": "/home/automation",
-              "user": "automation"
-            },
-            "nodejs": {
-              "binary": {
-                "checksum": {
-                  "linux_x64": "ac52da27a4e298a6de610de25b22628bdb97b78cb29d11464ef5cfa2e57847d5"
-                }
-              },
-              "install_method": "binary"
-            }
-          }
-        }
-      ]
-    }
-  ]
+  "cookbook_attributes": []
 }
