@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "buildstamp": "Version: 0.0.1 Build: 0010006 Time: 2015-07-12T21:37:02.060Z",
   "buildid": "0010006",
-  "tags": ["hello"],
+  "tags": ["hello", "again"],
   "nodes": [
     {
       "name": "something1436735294113",
