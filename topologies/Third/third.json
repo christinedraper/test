@@ -1,0 +1,57 @@
+{
+  "version": "0.0.1",
+  "buildstamp": "Version: 0.0.1 Build: 0010003 Time: 2015-07-12T19:19:31.222Z",
+  "buildid": "0010003",
+  "chef_environment": "_default",
+  "tags": [],
+  "nodes": [
+    {
+      "name": "tst-m11",
+      "tags": [],
+      "normal": {
+        "topo": {
+          "node_type": "something",
+          "name": "third"
+        }
+      },
+      "run_list": [
+        "role[base]",
+        "recipe[nodejs::install_from_binary]",
+        "recipe[asset_tracker::db]",
+        "recipe[asset_tracker::deploy_from_source]",
+        "recipe[asset_tracker::test]",
+        "recipe[third]"
+      ]
+    }
+  ],
+  "services": [],
+  "cookbook_attributes": [
+    {
+      "cookbook": "third",
+      "filename": "topology",
+      "conditional": [
+        {
+          "qualifier": "node_type",
+          "value": "something",
+          "override": {
+            "nodejs": {
+              "install_method": "binary",
+              "binary": {
+                "checksum": {
+                  "linux_x64": "ac52da27a4e298a6de610de25b22628bdb97b78cb29d11464ef5cfa2e57847d5"
+                }
+              }
+            },
+            "asset_tracker": {
+              "user": "automation",
+              "dir": "/home/automation",
+              "build": {
+                "env": "DEV"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
