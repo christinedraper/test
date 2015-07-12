@@ -1,7 +1,7 @@
 {
   "version": "0.0.1",
-  "buildstamp": "Version: 0.0.1 Build: 0010005 Time: 2015-07-12T21:08:46.054Z",
-  "buildid": "0010005",
+  "buildstamp": "Version: 0.0.1 Build: 0010006 Time: 2015-07-12T21:37:02.060Z",
+  "buildid": "0010006",
   "tags": [],
   "nodes": [
     {
@@ -19,14 +19,14 @@
         "recipe[asset_tracker::db]",
         "recipe[asset_tracker::deploy_from_source]",
         "recipe[asset_tracker::test]",
-        "recipe[3rd]"
+        "recipe[third]"
       ]
     }
   ],
   "services": [],
   "cookbook_attributes": [
     {
-      "cookbook": "3rd",
+      "cookbook": "third",
       "filename": "topology",
       "conditional": [
         {
