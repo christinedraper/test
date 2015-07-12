@@ -1,7 +1,9 @@
 {
+  "name": "3rd",
   "version": "0.0.1",
   "buildstamp": "Version: 0.0.1 Build: 0010007 Time: 2015-07-12T21:52:14.164Z",
   "buildid": "0010007",
+  "id": "3rd",
   "tags": [],
   "nodes": [
     {
