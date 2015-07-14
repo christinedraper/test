@@ -1,7 +1,9 @@
 {
+  "name": "bvt",
   "version": "0.0.1",
-  "buildstamp": "Version: 0.0.1 Build: 0010007 Time: 2015-07-12T14:25:01.380Z",
-  "buildid": "0010007",
+  "buildstamp": "Version: 0.0.1 Build: 0010001 Time: 2015-07-14T16:33:34.807Z",
+  "buildid": "0010001",
+  "id": "bvt",
   "chef_environment": "_default",
   "tags": [],
   "nodes": [
@@ -10,7 +12,7 @@
       "tags": [],
       "normal": {
         "topo": {
-          "node_type": "bvt_server",
+          "node_type": "node_type_1",
           "name": "bvt"
         }
       },
@@ -19,7 +21,6 @@
         "recipe[nodejs::install_from_binary]",
         "recipe[asset_tracker::db]",
         "recipe[asset_tracker::deploy_from_source]",
-        "recipe[asset_tracker::test]",
         "recipe[bvt]"
       ]
     }
@@ -32,7 +33,7 @@
       "conditional": [
         {
           "qualifier": "node_type",
-          "value": "bvt_server",
+          "value": "node_type_1",
           "override": {
             "nodejs": {
               "install_method": "binary",
@@ -47,16 +48,6 @@
               "dir": "/home/automation",
               "build": {
                 "env": "DEV"
-              }
-            }
-          },
-          "default": {
-            "asset_tracker": {
-              "home": "/home/automation",
-              "name": "asset_tracker",
-              "npm_registry": "https://registry.nodejitsu.com",
-              "grunt-cli": {
-                "version": "~0.1"
               }
             }
           }
