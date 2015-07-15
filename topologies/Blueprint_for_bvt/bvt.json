@@ -1,8 +1,8 @@
 {
   "name": "bvt",
   "version": "0.0.1",
-  "buildstamp": "Version: 0.0.1 Build: 0010001 Time: 2015-07-15T19:07:39.197Z",
-  "buildid": "0010001",
+  "buildstamp": "Version: 0.0.1 Build: 0010002 Time: 2015-07-15T21:02:12.660Z",
+  "buildid": "0010002",
   "id": "bvt",
   "chef_environment": "_default",
   "tags": [],
@@ -14,45 +14,33 @@
         "topo": {
           "node_type": "node_type_1",
           "name": "bvt"
+        },
+        "nodejs": {
+          "install_method": "binary",
+          "binary": {
+            "checksum": {
+              "linux_x64": "ac52da27a4e298a6de610de25b22628bdb97b78cb29d11464ef5cfa2e57847d5"
+            }
+          },
+          "version": "0.10.29"
+        },
+        "asset_tracker": {
+          "user": "automation",
+          "dir": "/home/automation",
+          "build": {
+            "env": "DEV"
+          },
+          "version": "1.2.2"
         }
       },
       "run_list": [
         "role[base]",
         "recipe[nodejs::install_from_binary]",
         "recipe[asset_tracker::db]",
-        "recipe[asset_tracker::deploy_from_source]",
-        "recipe[bvt]"
+        "recipe[asset_tracker::deploy_from_source]"
       ]
     }
   ],
   "services": [],
-  "cookbook_attributes": [
-    {
-      "cookbook": "bvt",
-      "filename": "topology",
-      "conditional": [
-        {
-          "qualifier": "node_type",
-          "value": "node_type_1",
-          "override": {
-            "nodejs": {
-              "install_method": "binary",
-              "binary": {
-                "checksum": {
-                  "linux_x64": "ac52da27a4e298a6de610de25b22628bdb97b78cb29d11464ef5cfa2e57847d5"
-                }
-              }
-            },
-            "asset_tracker": {
-              "user": "automation",
-              "dir": "/home/automation",
-              "build": {
-                "env": "DEV"
-              }
-            }
-          }
-        }
-      ]
-    }
-  ]
+  "cookbook_attributes": []
 }
