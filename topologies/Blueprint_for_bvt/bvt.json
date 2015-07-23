@@ -38,20 +38,20 @@
         "recipe[nodejs::install_from_binary]",
         "recipe[asset_tracker::db]",
         "recipe[asset_tracker::deploy_from_source]"
-      ]
-    },
-    {
-      "name": "type21437677507535",
-      "tags": [],
-      "normal": {
-        "topo": {
-          "node_type": "type2",
-          "name": "bvt"
-        }
-      },
-      "run_list": []
+      ],
+      "provisioning": {
+        "p1": "v1"
+      }
     }
   ],
-  "services": [],
+  "services": [
+    {
+      "name": "type21437677507535",
+      "type": "type2",
+      "provisioning": {
+        "o2": "v2"
+      }
+    }
+  ],
   "cookbook_attributes": []
 }
