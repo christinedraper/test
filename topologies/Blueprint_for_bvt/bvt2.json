@@ -1,0 +1,71 @@
+{
+  "name": "bvt2",
+  "version": "0.0.1",
+  "buildstamp": "Version: 0.0.1 Build: 0010002 Time: 2015-07-23T19:12:57.436Z",
+  "buildid": "0010002",
+  "id": "bvt2",
+  "chef_environment": "_default",
+  "tags": [],
+  "nodes": [
+    {
+      "name": "tst-m11",
+      "tags": [],
+      "normal": {
+        "topo": {
+          "node_type": "type1",
+          "name": "bvt2"
+        }
+      },
+      "run_list": [
+        "role[base]",
+        "recipe[nodejs::install_from_binary]",
+        "recipe[asset_tracker::db]",
+        "recipe[asset_tracker::deploy_from_source]",
+        "recipe[bvt2]"
+      ]
+    },
+    {
+      "name": "type21437677507535",
+      "tags": [],
+      "normal": {
+        "topo": {
+          "node_type": "type2",
+          "name": "bvt2"
+        }
+      },
+      "run_list": [
+        "recipe[bvt2]"
+      ]
+    }
+  ],
+  "services": [],
+  "cookbook_attributes": [
+    {
+      "cookbook": "bvt2",
+      "filename": "topology",
+      "conditional": [
+        {
+          "qualifier": "node_type",
+          "value": "type1",
+          "normal": {
+            "nodejs": {
+              "install_method": "binary",
+              "binary": {
+                "checksum": {
+                  "linux_x64": "ac52da27a4e298a6de610de25b22628bdb97b78cb29d11464ef5cfa2e57847d5"
+                }
+              }
+            },
+            "asset_tracker": {
+              "user": "automation",
+              "dir": "/home/automation",
+              "build": {
+                "env": "DEV"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
