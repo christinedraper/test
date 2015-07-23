@@ -1,8 +1,8 @@
 {
   "name": "bvt",
   "version": "0.0.1",
-  "buildstamp": "Version: 0.0.1 Build: 0010002 Time: 2015-07-14T16:46:54.780Z",
-  "buildid": "0010002",
+  "buildstamp": "Version: 0.0.1 Build: 0010003 Time: 2015-07-23T18:51:49.242Z",
+  "buildid": "0010003",
   "id": "bvt",
   "chef_environment": "_default",
   "tags": [],
@@ -12,7 +12,7 @@
       "tags": [],
       "normal": {
         "topo": {
-          "node_type": "node_type_1",
+          "node_type": "type1",
           "name": "bvt"
         },
         "nodejs": {
@@ -39,6 +39,17 @@
         "recipe[asset_tracker::db]",
         "recipe[asset_tracker::deploy_from_source]"
       ]
+    },
+    {
+      "name": "type21437677507535",
+      "tags": [],
+      "normal": {
+        "topo": {
+          "node_type": "type2",
+          "name": "bvt"
+        }
+      },
+      "run_list": []
     }
   ],
   "services": [],
