@@ -1,9 +1,17 @@
 {
+  "name": "TestTopo",
   "version": "0.0.1",
-  "buildstamp": "Version: 0.0.1 Build: 0010001 Time: 2015-07-11T18:44:36.954Z",
+  "buildstamp": "Version: 0.0.1 Build: 0010001 Time: 2016-01-14T17:24:36.797Z",
   "buildid": "0010001",
-  "tags": [],
+  "strategy": "via_cookbook",
+  "strategy_data": {
+    "cookbook": "topo_test1",
+    "filename": "topology"
+  },
+  "tags": [
+    " tag1",
+    "bptag"
+  ],
   "nodes": [],
-  "services": [],
-  "cookbook_attributes": []
+  "services": []
 }
